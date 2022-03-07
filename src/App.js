@@ -1,4 +1,6 @@
 import './App.css';
+import axios from 'axios';
+
 
 import Consumo from './components/Consumo';
 
@@ -15,8 +17,6 @@ import Consumo from './components/Consumo';
   };
 
 
-
- 
 
 
 export default App;
