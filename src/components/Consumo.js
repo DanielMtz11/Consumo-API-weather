@@ -50,7 +50,7 @@ const Consumo = () => {
         
         setTimeout(() => {
         setLoading(false);
-        },6000);//despues de 6 seg. el estado de loading cambia a false
+        },7000);//despues de 6 seg. el estado de loading cambia a false
         }, []);
     
 
