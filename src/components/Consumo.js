@@ -24,9 +24,7 @@ const Consumo = () => {
     let todayIs = `${today.getDate()}-${today.getMonth()+1}-${today.getFullYear()}`
 
 
-    useEffect( ()=>{    
-        navigator.geolocation.getCurrentPosition(success);//?is used to get the current position of the device.
-        },[]);
+
 
 
     const success=(pos)=>{
@@ -49,6 +47,12 @@ const Consumo = () => {
         });
         
     }
+    
+    useEffect(() => {
+        navigator.geolocation.getCurrentPosition(success);//?is used to get the current position of the device.
+
+    }, [])
+
     
         setTimeout(() => {
             setLoading(false);
