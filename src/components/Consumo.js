@@ -27,38 +27,32 @@ const Consumo = () => {
 
 
 
-
-
-    const success=(pos)=>{
-
-        let latitude = pos.coords.latitude;
-        let longitude = pos.coords.longitude;
-
-        
-        axios.get( `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=4752e37b5bfea353b5a494c5e134282f&units=metric`)
-        .then(res => {
-            setWeather(res.data); //seteamos Weather, ahora vale data de la respuesta de la API
-            setTemp(res.data.main.temp);
-            if(temp > "20"){
-                //a partir de 20° C se hace un cambio de estilos
-                setbackgndColor("linear-gradient( 135deg, #e0d42a 10%, #e56251 100%)");
-                setColor("#c411119d");
-                setbgBtn("rgb(209, 124, 109)");
-            }
-            setLoading(false);
-
-
-
-        });
-        
-    }
-
     
     
     useEffect(() => {
+        const success=(pos)=>{
+
+            let latitude = pos.coords.latitude;
+            let longitude = pos.coords.longitude;
+    
+            
+            axios.get( `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=4752e37b5bfea353b5a494c5e134282f&units=metric`)
+            .then(res => {
+                setWeather(res.data); //seteamos Weather, ahora vale data de la respuesta de la API
+                setTemp(res.data.main.temp);
+                if(temp > "20"){
+                    //a partir de 20° C se hace un cambio de estilos
+                    setbackgndColor("linear-gradient( 135deg, #e0d42a 10%, #e56251 100%)");
+                    setColor("#c411119d");
+                    setbgBtn("rgb(209, 124, 109)");
+                }
+                setLoading(false);
+            });
+            
+        }
         navigator.geolocation.getCurrentPosition(success);//?is used to get the current position of the device.
 
-    }, [success])
+    }, [])
 
 
     
