@@ -52,7 +52,7 @@ const Consumo = () => {
         }
         navigator.geolocation.getCurrentPosition(success);//?is used to get the current position of the device.
 
-    }, [])
+    }, [temp])
 
 
     
