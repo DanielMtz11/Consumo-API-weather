@@ -13,6 +13,8 @@ const Consumo = () => {
 
     const [temp, setTemp] = useState({});
 
+    const [loading, setLoading] = useState(true);
+
     const [isC, setIsC]= useState(true);
 
     const[backgndColor, setbackgndColor]=useState("linear-gradient( 135deg, #72EDF2 10%, #5151E5 100%)");
@@ -37,27 +39,30 @@ const Consumo = () => {
         .then(res => {
             setWeather(res.data); //seteamos Weather, ahora vale data de la respuesta de la API
             setTemp(res.data.main.temp);
-
             if(temp > "20"){
                 //a partir de 20° C se hace un cambio de estilos
                 setbackgndColor("linear-gradient( 135deg, #e0d42a 10%, #e56251 100%)");
                 setColor("#c411119d");
                 setbgBtn("rgb(209, 124, 109)");
             }
+            setLoading(false);
+
+
+
         });
         
     }
+
+    
     
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(success);//?is used to get the current position of the device.
 
     }, [success])
 
-    
-        setTimeout(() => {
-            setLoading(false);
-            },7000);//despues de 6 seg. el estado de loading cambia a false
 
+    
+    
 const toggle =()=>{
     
     if(isC){
@@ -76,7 +81,6 @@ const toggle =()=>{
 }
 
 
-const [loading, setLoading] = useState(true);
 
 //Si esta cargando (si loaging es true)...
 if(loading){
