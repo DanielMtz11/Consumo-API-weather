@@ -1,5 +1,4 @@
 import './App.css';
-import axios from 'axios';
 
 
 import Consumo from './components/Consumo';
