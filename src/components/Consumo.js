@@ -50,11 +50,9 @@ const Consumo = () => {
         
     }
     
-    useEffect(()=>{
         setTimeout(() => {
             setLoading(false);
             },7000);//despues de 6 seg. el estado de loading cambia a false
-    },[])
 
 const toggle =()=>{
     
