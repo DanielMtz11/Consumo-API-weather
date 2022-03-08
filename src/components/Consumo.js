@@ -26,7 +26,7 @@ const Consumo = () => {
 
     useEffect( ()=>{    
         navigator.geolocation.getCurrentPosition(success);//?is used to get the current position of the device.
-        });
+        },[]);
 
 
     const success=(pos)=>{
@@ -35,7 +35,7 @@ const Consumo = () => {
         let longitude = pos.coords.longitude;
 
         
-        axios.get( `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=895af5b2d4452a3e68ac792e05f91328&units=metric`)
+        axios.get( `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=4752e37b5bfea353b5a494c5e134282f&units=metric`)
         .then(res => {
             setWeather(res.data); //seteamos Weather, ahora vale data de la respuesta de la API
             setTemp(res.data.main.temp);
