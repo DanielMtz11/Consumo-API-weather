@@ -40,7 +40,7 @@ const Consumo = () => {
             .then(res => {
                 setWeather(res.data); //seteamos Weather, ahora vale data de la respuesta de la API
                 setTemp(res.data.main.temp);
-                if(temp > "20"){
+                if(res.data.main.temp > "20"){
                     //a partir de 20° C se hace un cambio de estilos
                     setbackgndColor("linear-gradient( 135deg, #e0d42a 10%, #e56251 100%)");
                     setColor("#c411119d");
@@ -52,7 +52,7 @@ const Consumo = () => {
         }
         navigator.geolocation.getCurrentPosition(success);//?is used to get the current position of the device.
 
-    }, [temp])
+    }, [])
 
 
     
