@@ -26,7 +26,7 @@ const Consumo = () => {
 
     useEffect( ()=>{    
         navigator.geolocation.getCurrentPosition(success);//?is used to get the current position of the device.
-        }, []);
+        });
 
 
     const success=(pos)=>{
