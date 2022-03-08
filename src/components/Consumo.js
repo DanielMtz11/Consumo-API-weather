@@ -23,11 +23,9 @@ const Consumo = () => {
     
     let todayIs = `${today.getDate()}-${today.getMonth()+1}-${today.getFullYear()}`
 
+
     useEffect( ()=>{    
         navigator.geolocation.getCurrentPosition(success);//?is used to get the current position of the device.
-        setTimeout(() => {
-        setLoading(false);
-        },7000);//despues de 6 seg. el estado de loading cambia a false
         }, []);
 
 
@@ -52,8 +50,11 @@ const Consumo = () => {
         
     }
     
- 
-    
+    useEffect(()=>{
+        setTimeout(() => {
+            setLoading(false);
+            },7000);//despues de 6 seg. el estado de loading cambia a false
+    },[])
 
 const toggle =()=>{
     
